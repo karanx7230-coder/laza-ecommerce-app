@@ -15,14 +15,14 @@ export const Titlesstyles = StyleSheet.create({
   row: {
     flexDirection: "row",
     justifyContent: "space-between",
-    bottom: 20,
     marginTop: 20,
     marginRight: 20,
+    paddingBottom:"auto"
   },
   text1: {
     color: "#a5a5a5",
     textAlign: "center",
-    width: "70%",
+    width: "80%",
   },
   title: {
     fontSize: 28,

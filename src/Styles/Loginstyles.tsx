@@ -101,4 +101,11 @@ export const Loginstyles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+   box1: {
+    position: "absolute",
+    bottom: 0,
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });

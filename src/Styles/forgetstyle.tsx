@@ -6,6 +6,13 @@ export const forgetstyle = StyleSheet.create({
     paddingTop: 45,
     backgroundColor: "white",
   },
+  box1: {
+    position: "absolute",
+    bottom: 0,
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   box: {
     position: "absolute",
     bottom: 0,

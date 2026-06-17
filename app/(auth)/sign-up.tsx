@@ -1,11 +1,11 @@
 import { Back, Btn } from "@/components/ui/Btn";
 
 import { Input } from "@/components/ui/Inputs";
-import { signupstyles } from "@/src/Styles/signupstyles";
 import { Remember, Title } from "@/components/ui/Titles";
+import { signupstyles } from "@/src/Styles/signupstyles";
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
-import { Alert, ScrollView, Text, View } from "react-native";
+import { Alert, ScrollView, Text, TouchableOpacity, View } from "react-native";
 
 export default function Signup() {
   const [email, setemail] = useState("");
@@ -23,7 +23,7 @@ export default function Signup() {
       Alert.alert("enter valid email");
       return;
     }
-    if (!email.includes(".")) {
+    if (!email.includes(".com")) {
       Alert.alert("enter valid email");
       return;
     }
@@ -46,29 +46,36 @@ export default function Signup() {
       <View style={signupstyles.mainview}>
         <Back />
         <Title title="Let's Get Started" />
-        <View style={signupstyles.view1}>
-          <Input
-            title="username"
-            placeholder="username"
-            value={username}
-            onChangeText={setusername}
-          />
-          <Input
-            title="password"
-            placeholder="password"
-            value={password}
-            onChangeText={setpassword}
-          />
-          <Input
-            title="E-mail"
-            placeholder="email"
-            value={email}
-            onChangeText={setemail}
-          />
-        </View>
+        <View style={signupstyles.view1} />
+        <Input
+          title="username"
+          placeholder="username"
+          value={username}
+          onChangeText={setusername}
+        />
+        <Input
+          title="password"
+          placeholder="password"
+          value={password}
+          onChangeText={setpassword}
+        />
+        <Input
+          title="E-mail"
+          placeholder="email"
+          value={email}
+          onChangeText={setemail}
+        />
         <Remember value={rememered} change={() => setrememberd(!rememered)} />
+        <View style={signupstyles.box}>
+          <View style={signupstyles.line}>
+            <Text style={signupstyles.text1}>Already have an account? </Text>
+            <TouchableOpacity onPress={() => router.push("/login")}>
+              <Text style={signupstyles.text2}>Login</Text>
+            </TouchableOpacity>
+          </View>
+          <Btn title="Create an Account" onPress={handlesignup} />
+        </View>
       </View>
-      <Btn title="Create an Account" onPress={handlesignup} />
     </ScrollView>
   );
 }

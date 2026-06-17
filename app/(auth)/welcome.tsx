@@ -11,7 +11,7 @@ import {
   View,
 } from "react-native";
 
-export default function Onboarding({ navigation }: any) {
+export default function Onboarding() {
   const route = useRouter();
   
   return (
@@ -45,7 +45,7 @@ export default function Onboarding({ navigation }: any) {
             
             <TouchableOpacity
               onPress={() => {
-                route.push("/(tabs)");
+                route.push("/login-type");
                 console.log("female");
               }}
               style={welcomeStyles.button}
@@ -57,7 +57,7 @@ export default function Onboarding({ navigation }: any) {
           <Pressable
             onPress={() => {
               route.push("/login-type");
-              console.log("6");
+              console.log("skiped");
             }}
             style={welcomeStyles.skipContainer}
           >

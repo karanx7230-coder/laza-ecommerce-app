@@ -12,7 +12,7 @@ export const Input = ({ title, ...props }: InputProps) => {
             <View
                 style={[
                     style.inputview,
-                    { borderBottomColor: isFocused ? "blue" : "grey" },
+                    { borderBottomColor: isFocused ? "blue" : "#8585856b" },
                 ]}
             >
                 <TextInput
@@ -27,8 +27,7 @@ export const Input = ({ title, ...props }: InputProps) => {
 };
  const style = StyleSheet.create({
     inputview: {
-        borderWidth: 1,
-        borderBottomColor: "#8585853a",
+        borderWidth: 2,
         borderColor: "white",
         height: 60,
         width: "95%",
