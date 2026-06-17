@@ -31,21 +31,26 @@ export const searchstyles = StyleSheet.create({
   },
   productItem: {
     padding: 20,
-    backgroundColor: "skyblue",
+    backgroundColor: "#f0f0f0",
     marginVertical: 10,
     borderRadius: 15,
     flexDirection: "row",
     alignItems: "center",
   },
   productThumbnail: {
-    height: 40,
-    width: 40,
+    height: 80,
+    width: 80,
     alignSelf: "center",
     marginRight: 15,
   },
   productTitle: {
     fontSize: 16,
     color: "#333",
+    flexShrink: 1,
+  },
+   productprice: {
+    fontSize: 16,
+    color: "#0a1068c1",
     flexShrink: 1,
   },
 });

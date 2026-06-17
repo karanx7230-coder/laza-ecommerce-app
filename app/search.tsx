@@ -1,4 +1,4 @@
-import { Loadingproduct, Loadingsearch } from "@/components/ui/Loading";
+import { Loadingproduct,Searchnotfound } from "@/components/ui/Loading";
 import { searchstyles } from "@/src/Styles/searchstyles";
 import { Api } from "@/src/services/api";
 import { router } from "expo-router";
@@ -53,7 +53,7 @@ export default function Search() {
       return <Loadingproduct />;
     }
     if (query.trim() && result.length === 0) {
-      return <Loadingsearch />;
+      return <Searchnotfound />;
     }
     return (
       <FlatList
@@ -74,6 +74,7 @@ export default function Search() {
               style={searchstyles.productThumbnail}
             />
             <Text style={searchstyles.productTitle}>{item.title}</Text>
+            <Text style={searchstyles.productprice}>{item.price}</Text>
           </Pressable>
         )}
       />

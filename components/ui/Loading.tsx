@@ -55,7 +55,7 @@ export const Loadingproduct = () => {
   );
 };
 
-export const Loadingsearch = () => {
+export const Searchnotfound = () => {
   return (
     <View style={Loadingstyles.searchErrorContainer}>
       <Image
@@ -64,13 +64,6 @@ export const Loadingsearch = () => {
         resizeMode="contain"
       />
       <Text style={Loadingstyles.errorText}>no product found</Text>
-
-      <TouchableOpacity
-        onPress={() => router.back()}
-        style={Loadingstyles.backButton}
-      >
-        <Text style={Loadingstyles.backButtonText}>Go Back</Text>
-      </TouchableOpacity>
     </View>
   );
 };

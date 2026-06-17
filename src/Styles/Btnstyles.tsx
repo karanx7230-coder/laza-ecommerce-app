@@ -21,7 +21,6 @@ export const Btnstyles = StyleSheet.create({
   btn: {
     width: "100%",
     height: 100,
-    bottom:0,
     backgroundColor: "#9775FA",
     justifyContent: "center",
     alignItems: "center",
