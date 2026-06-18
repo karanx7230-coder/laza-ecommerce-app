@@ -14,7 +14,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Api } from "../../src/services/api";
-import { signOut } from 'firebase/auth';
+import { signOut } from "firebase/auth";
 import { homestyles } from "@/src/Styles/homestyles";
 import { CartBtn, Menu } from "@/components/ui/Btn";
 

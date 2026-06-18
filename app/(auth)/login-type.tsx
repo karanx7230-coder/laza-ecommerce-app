@@ -45,7 +45,7 @@ export default function LoginType() {
         </View>
         <Btn
           title="create an Account"
-          onPress={() => Alert.alert("feature yet to add")}
+          onPress={() => router.push("/sign-up")}
         />
       </View>
     </View>

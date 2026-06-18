@@ -51,6 +51,6 @@ export const searchstyles = StyleSheet.create({
    productprice: {
     fontSize: 16,
     color: "#0a1068c1",
-    flexShrink: 1,
+    marginRight:30
   },
 });
