@@ -6,8 +6,8 @@ export default function Index({ navigation }: any) {
   const router = useRouter();
   useEffect(() => {
     const timer = setTimeout(() => {
-      // router.replace("/welcome");
-      router.replace("/(tabs)");
+      router.replace("/welcome");
+      // router.replace("/(tabs)");
     }, 5000);
     return () => clearTimeout(timer);
   }, []);

@@ -1,9 +1,10 @@
 import { Back } from "@/components/ui/Btn";
-import { Loadingproduct, Loadingsearch } from "@/components/ui/Loading";
-import { useLocalSearchParams } from "expo-router";
+import { Loadingproduct } from "@/components/ui/Loading";
+import { router, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { productstyles } from "@/src/Styles/productstyles";
 import {
+  Alert,
   Image,
   Pressable,
   ScrollView,
@@ -67,7 +68,8 @@ export default function ProductDetailScreen() {
   }
 
   if (error || !product) {
-    return <Loadingsearch />;
+    Alert.alert("retry");
+    return;
   }
 
   return (
@@ -103,7 +105,14 @@ export default function ProductDetailScreen() {
 
         <View style={productstyles.reviewsHeaderRow}>
           <Text style={productstyles.reviewsHeading}>Reviews</Text>
-          <Pressable>
+          <Pressable
+            onPress={() =>
+              router.push({
+                pathname: "/Product/reviews",
+                params: { id: product.id },
+              })
+            }
+          >
             <Text style={productstyles.viewAllText}>View all</Text>
           </Pressable>
         </View>
@@ -114,7 +123,7 @@ export default function ProductDetailScreen() {
               {product.reviews[0].reviewerName}
             </Text>
             <Text>
-              {product.reviews[0].rating}{" "}
+              {product.reviews[0].rating}
               <Text style={productstyles.ratingLabel}>rating</Text>
             </Text>
           </View>

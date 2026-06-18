@@ -3,6 +3,7 @@ import { router } from "expo-router";
 import { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
+  Alert,
   FlatList,
   Image,
   ImageBackground,
@@ -61,46 +62,11 @@ export default function HomeTabScreen() {
       setProducts(response.data.products);
     } catch (error: any) {
       console.log("aggggggggg");
-      setError("failed to load api try restarting the app ");
+      setError("failed to load api try restart the app ");
     } finally {
       setIsLoading(false);
     }
   };
-  // const loadLikedProducts = async () => {
-  //   try {
-  //     const storedLikes = await AsyncStorage.getItem("wishlist");
-
-  //     if (storedLikes) {
-  //       setLikedProducts(JSON.parse(storedLikes));
-  //     }
-  //   } catch (error) {
-  //     console.log("Error loading wishlist", error);
-  //   }
-  // };
-  // const toggleWishlist = async (productId: number) => {
-  //   try {
-  //     let updatedLikes: number[] = [];
-
-  //     if (likedProducts.includes(productId)) {
-  //       updatedLikes = likedProducts.filter((id) => id !== productId);
-
-  //       console.log(`Product ${productId} disliked`);
-  //     } else {
-  //       updatedLikes = [...likedProducts, productId];
-
-  //       console.log(`Product ${productId} liked`);
-  //     }
-
-  //     setLikedProducts(updatedLikes);
-
-  //     await AsyncStorage.setItem("wishlist", JSON.stringify(updatedLikes));
-  //   } catch (error) {
-  //     console.log("Wishlist Error", error);
-  //   }
-  // };
-  // useEffect(() => {
-  //   loadLikedProducts();
-  // }, []);
   useEffect(() => {
     loadCategories();
   }, []);
@@ -110,7 +76,6 @@ export default function HomeTabScreen() {
   }, [selectedCategory]);
 
   const renderProductCard = ({ item }: { item: Product }) => {
-    // const isLiked = likedProducts.includes(item.id);
     return (
       <TouchableOpacity
         onPress={() => {
@@ -124,13 +89,10 @@ export default function HomeTabScreen() {
           style={homestyles.productImage}
           resizeMode="contain"
         >
-          <TouchableOpacity
-          // onPress={() => toggleWishlist(item.id)}
-          >
+          <TouchableOpacity>
             <Image
               source={require("../../assets/images/Heart (1).png")}
               style={{
-                // tintColor: isLiked ? "red" : "#999",
                 height: 20,
                 width: 20,
                 margin: 10,
@@ -156,7 +118,28 @@ export default function HomeTabScreen() {
       </View>
     );
   }
-
+  // const handlesignupsave = async () => {
+  //   try {
+  //     setIsLoading(true);
+  //     await AsyncStorage.setItem("name", username.trim());
+  //     await AsyncStorage.setItem("emailid", email.trim());
+  //     await AsyncStorage.setItem("password", password.trim());
+  //     router.push("/(tabs)");
+  //   } catch (error) {
+  //     Alert.alert("saving failed");
+  //     console.log("error");
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
+  const menu = async () => {
+    try {
+      const emailshow = await AsyncStorage.getItem("emailid");
+      Alert.alert("your email", `Email: ${emailshow}`);
+    } catch (error) {
+      Alert.alert("failed");
+    }
+  };
   return (
     <SafeAreaView style={homestyles.safeArea}>
       <FlatList
@@ -165,8 +148,8 @@ export default function HomeTabScreen() {
             <View
               style={{ flexDirection: "row", justifyContent: "space-between" }}
             >
-              <Menu />
-              <CartBtn />
+              <Menu onPress={menu} />
+              <CartBtn onPress={()=>Alert.alert("feature yet to add")} />
             </View>
             <View style={homestyles.greetingContainer}>
               <Text style={homestyles.helloText}>Hello</Text>

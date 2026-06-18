@@ -44,7 +44,7 @@ export default function Search() {
   useEffect(() => {
     const delayDebounce = setTimeout(() => {
       fetchSearchResults(query);
-    }, 500);
+    },200);
     return () => clearTimeout(delayDebounce);
   }, [query]);
 
@@ -85,7 +85,7 @@ export default function Search() {
     <View style={searchstyles.container}>
       <View style={searchstyles.searchRow}>
         <View style={searchstyles.searchInputContainer}>
-          <Image source={require("../assets/images/Search (1).png")} />
+          <Image source={require("../../assets/images/Search (1).png")} />
           <TextInput
             placeholder="Search..."
             placeholderTextColor={"#8F959E"}

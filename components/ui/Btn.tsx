@@ -13,7 +13,12 @@ type BtnProps = {
   title: string;
   onPress: () => void;
 };
-
+type menuProps = {
+  onPress: () => void;
+};
+type cartbtnProps = {
+  onPress: () => void;
+};
 type SocialProps = {
   title: string;
   backgroundColor: string;
@@ -47,9 +52,9 @@ export const SocialButton = ({
   );
 };
 
-export const CartBtn = () => {
+export const CartBtn = ({ onPress }: cartbtnProps) => {
   return (
-    <TouchableOpacity style={Btnstyles.cartButton}>
+    <TouchableOpacity onPress={onPress} style={Btnstyles.cartButton}>
       <Image
         source={require("../../assets/images/Bag (1).png")}
         style={Btnstyles.cartIcon}
@@ -71,11 +76,11 @@ export const Back = () => {
   );
 };
 
-export const Menu = () => {
+export const Menu = ({ onPress }: menuProps) => {
   const router = useRouter();
   return (
     <View style={Btnstyles.headerContainer}>
-      <TouchableOpacity style={Btnstyles.menuButton}>
+      <TouchableOpacity onPress={onPress} style={Btnstyles.menuButton}>
         <Image
           source={require("../../assets/images/menu (2).png")}
           style={Btnstyles.menuImage}

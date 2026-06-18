@@ -18,7 +18,7 @@ export default function TabLayout() {
         name="index"
         options={{
           title: "Home",
-          tabBarIcon: ({ color }) => (
+          tabBarIcon: () => (
             <Image
               source={require("../../assets/images/Vector (4).png")}
               style={{ height: 22, width: 22 }}
@@ -28,12 +28,12 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="wishlist"
+        name="search"
         options={{
-          title: "Wishlist",
-          tabBarIcon: ({ color }) => (
+          title: "Search",
+          tabBarIcon: () => (
             <Image
-              source={require("../../assets/images/Heart (1).png")}
+              source={require("../../assets/images/Search (1).png")}
               style={{ height: 22, width: 22 }}
               resizeMode="contain"
             />

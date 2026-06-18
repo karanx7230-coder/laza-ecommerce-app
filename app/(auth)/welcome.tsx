@@ -2,18 +2,11 @@ import { welcomeStyles } from "@/src/Styles/welcomestyles";
 import { LinearGradient } from "expo-linear-gradient";
 import { useRouter } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import {
-  Image,
-  Pressable,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Image, Pressable, Text, TouchableOpacity, View } from "react-native";
 
 export default function Onboarding() {
   const route = useRouter();
-  
+
   return (
     <View style={welcomeStyles.view}>
       <StatusBar style="dark" />
@@ -25,13 +18,13 @@ export default function Onboarding() {
         style={welcomeStyles.gradient}
       >
         <Image source={require("../../assets/images/backgroundMan.png")} />
-        
+
         <View style={welcomeStyles.background}>
           <Text style={welcomeStyles.text1}>Look Good Feel Good</Text>
           <Text style={welcomeStyles.text2}>
             create your individual & unique style and look amazing everyday
           </Text>
-          
+
           <View style={welcomeStyles.view1}>
             <TouchableOpacity
               onPress={() => {
@@ -42,7 +35,7 @@ export default function Onboarding() {
             >
               <Text style={welcomeStyles.gender}>Male</Text>
             </TouchableOpacity>
-            
+
             <TouchableOpacity
               onPress={() => {
                 route.push("/login-type");
@@ -53,10 +46,11 @@ export default function Onboarding() {
               <Text style={welcomeStyles.gender}>Female</Text>
             </TouchableOpacity>
           </View>
-          
+
           <Pressable
             onPress={() => {
-              route.push("/login-type");
+              // route.push("/login-type");
+              route.push("/(tabs)");
               console.log("skiped");
             }}
             style={welcomeStyles.skipContainer}
@@ -68,4 +62,3 @@ export default function Onboarding() {
     </View>
   );
 }
-

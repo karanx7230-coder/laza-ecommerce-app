@@ -2,38 +2,38 @@ import { Back, Btn } from "@/components/ui/Btn";
 import { Input } from "@/components/ui/Inputs";
 import { useRouter } from "expo-router";
 import { Loginstyles } from "@/src/Styles/Loginstyles";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import { Alert, Pressable, ScrollView, Switch, Text, View } from "react-native";
 import { Title2 } from "@/components/ui/Titles";
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function Login() {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [rememered, setrememberd] = useState<boolean>(true);
   const router = useRouter();
-  const handlesignup = () => {
-    if (email === "" || password === "") {
-      Alert.alert("fill them all");
-      return;
+ const handlesignup = async()=>{
+  try{
+    const savedemail =await AsyncStorage.getItem("emailid");
+    const savedpassword = await AsyncStorage.getItem("password");
+    if(email===savedemail?.trim()){
+      console.log("emailgood");
+    }if(password===savedpassword){
+      Alert.alert("passwordgood")
     }
-    if (!email.includes("@")) {
-      Alert.alert("invalid email");
-      return;
-    }
-    if (!email.includes(".com")) {
-      Alert.alert("email inavlid");
-      return;
-    }
-    if (password.length < 6) {
-      Alert.alert("Password must be 6 letters long");
-      return;
-    }
-    // console.log("email=", email);
-    // console.log("password=", password);
-    router.replace("/(tabs)");
-  };
+    Alert.alert("success")
+    router.replace("/(tabs)")
+  }catch(error){
+    Alert.alert("email not fun")
+  }finally{
+    setIsLoading(false);
+  }
+
+ }
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
       <View style={Loginstyles.mainview}>
@@ -78,4 +78,3 @@ export default function Login() {
     </ScrollView>
   );
 }
-//
