@@ -1,5 +1,4 @@
-import { router } from "expo-router";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Image, Text, View } from "react-native";
 import { Loadingstyles } from "@/src/Styles/Loadingstyles";
 
 export const Loadinghome = () => {
@@ -47,10 +46,16 @@ export const Loadinghome = () => {
 export const Loadingproduct = () => {
   return (
     <View>
-      {/* Mapped 11 times to match your original hardcoded views cleanly */}
-      {Array.from({ length: 11 }).map((_, index) => (
-        <View key={index} style={Loadingstyles.productListItemSkeleton} />
-      ))}
+        <View  style={Loadingstyles.productListItemSkeleton} />
+        <View  style={Loadingstyles.productListItemSkeleton} />
+        <View  style={Loadingstyles.productListItemSkeleton} />
+        <View  style={Loadingstyles.productListItemSkeleton} />
+        <View  style={Loadingstyles.productListItemSkeleton} />
+        <View  style={Loadingstyles.productListItemSkeleton} />
+        <View  style={Loadingstyles.productListItemSkeleton} />
+        <View  style={Loadingstyles.productListItemSkeleton} />
+        <View  style={Loadingstyles.productListItemSkeleton} />
+        <View  style={Loadingstyles.productListItemSkeleton} />
     </View>
   );
 };

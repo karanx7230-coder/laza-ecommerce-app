@@ -1,4 +1,4 @@
-import { Back, Cart } from "@/components/ui/Btn";
+import { Back, CartBtn } from "@/components/ui/Btn";
 import { LoadingWishlist } from "@/components/ui/Loading";
 import { Title } from "@/components/ui/Titles";
  import { Api } from "@/src/services/api"; 
@@ -29,10 +29,9 @@ export default function Wishlist() {
       >
         <Back />
         <Title title="Wishlist" />
-        <Cart />
+        <CartBtn />
       </View>
-      {/* <FlatList/ */}
-      {/* data={} */}
+     
       <LoadingWishlist/>
     </SafeAreaView>
   );

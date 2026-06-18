@@ -14,6 +14,7 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Api } from "../../src/services/api";
 import { homestyles } from "@/src/Styles/homestyles";
+import { CartBtn, Menu } from "@/components/ui/Btn";
 
 interface Product {
   id: number;
@@ -161,16 +162,12 @@ export default function HomeTabScreen() {
       <FlatList
         ListHeaderComponent={
           <View>
-            <View style={homestyles.headerContainer}>
-              <TouchableOpacity style={homestyles.menuButton}>
-                <Image
-                  source={require("../../assets/images/menu (2).png")}
-                  style={homestyles.menuImage}
-                  resizeMode="contain"
-                />
-              </TouchableOpacity>
+            <View
+              style={{ flexDirection: "row", justifyContent: "space-between" }}
+            >
+              <Menu />
+              <CartBtn />
             </View>
-
             <View style={homestyles.greetingContainer}>
               <Text style={homestyles.helloText}>Hello</Text>
               <Text style={homestyles.welcomeText}>Welcome to Laza</Text>

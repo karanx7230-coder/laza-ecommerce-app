@@ -24,23 +24,7 @@ export const homestyles = StyleSheet.create({
     backgroundColor: "#e1e1e1",
     borderRadius: 20,
   },
-  headerContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  menuButton: {
-    height: 45,
-    width: 45,
-    marginVertical: 20,
-    justifyContent: "center",
-    borderRadius: 30,
-    backgroundColor: "#F5F6FA",
-  },
-  menuImage: {
-    alignSelf: "center",
-    height: 25,
-    width: 25,
-  },
+
   greetingContainer: {
     marginBottom: 20,
   },

@@ -5,6 +5,7 @@ import {
   ImageSourcePropType,
   Text,
   TouchableOpacity,
+  View,
 } from "react-native";
 import { Btnstyles } from "@/src/Styles/Btnstyles";
 
@@ -69,14 +70,18 @@ export const Back = () => {
     </TouchableOpacity>
   );
 };
-export const Cart = () => {
+
+export const Menu = () => {
   const router = useRouter();
   return (
-    <TouchableOpacity
-      onPress={() => router.push("/(tabs)")}
-      style={Btnstyles.backButton}
-    >
-      <Image source={require("../../assets/images/Bag (1).png")} />
-    </TouchableOpacity>
+    <View style={Btnstyles.headerContainer}>
+      <TouchableOpacity style={Btnstyles.menuButton}>
+        <Image
+          source={require("../../assets/images/menu (2).png")}
+          style={Btnstyles.menuImage}
+          resizeMode="contain"
+        />
+      </TouchableOpacity>
+    </View>
   );
 };
