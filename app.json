@@ -1,17 +1,19 @@
 {
   "expo": {
-    "name": "newapp",
-    "slug": "newapp",
+    "name": "Laza Ecommerce",
+    "slug": "laza-ecommerce",
+    "scheme": "lazaecommerce",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "newapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true
     },
     "android": {
+      "package": "com.karanpreet.lazaecommerce",
+      "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "backgroundColor": "#9775FA",
         "foregroundImage": "./assets/images/android-icon-foreground.png",

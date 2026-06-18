@@ -1,13 +1,22 @@
 import { Back, Btn } from "@/components/ui/Btn";
 import { Input } from "@/components/ui/Inputs";
-import { useRouter } from "expo-router";
 import { Loginstyles } from "@/src/Styles/Loginstyles";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useRouter } from "expo-router";
 
-import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
-import { Alert, Pressable, ScrollView, Switch, Text, View } from "react-native";
 import { Title2 } from "@/components/ui/Titles";
+import { auth } from "@/config/firebase";
+import { StatusBar } from "expo-status-bar";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import React, { useState } from "react";
+import {
+  ActivityIndicator,
+  Alert,
+  Pressable,
+  ScrollView,
+  Switch,
+  Text,
+  View,
+} from "react-native";
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function Login() {
@@ -16,24 +25,30 @@ export default function Login() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [rememered, setrememberd] = useState<boolean>(true);
   const router = useRouter();
- const handlesignup = async()=>{
-  try{
-    const savedemail =await AsyncStorage.getItem("emailid");
-    const savedpassword = await AsyncStorage.getItem("password");
-    if(email===savedemail?.trim()){
-      console.log("emailgood");
-    }if(password===savedpassword){
-      Alert.alert("passwordgood")
-    }
-    Alert.alert("success")
-    router.replace("/(tabs)")
-  }catch(error){
-    Alert.alert("email not fun")
-  }finally{
-    setIsLoading(false);
-  }
+  const handlesignup = async () => {
+    try {
+      const userCrenditial = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password,
+      );
+      console.log("loggedin", userCrenditial.user.uid);
 
- }
+      Alert.alert("success");
+      router.replace("/(tabs)");
+    } catch (error) {
+      Alert.alert("email not fun");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  if (isLoading) {
+    return (
+      <View style={{ height: "50%", width: "70%" }}>
+        <ActivityIndicator />
+      </View>
+    );
+  }
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
       <View style={Loginstyles.mainview}>

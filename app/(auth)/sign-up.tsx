@@ -6,6 +6,9 @@ import { signupstyles } from "@/src/Styles/signupstyles";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../config/firebase";
+
 import {
   ActivityIndicator,
   Alert,
@@ -46,12 +49,16 @@ export default function Signup() {
   const handlesignupsave = async () => {
     try {
       setIsLoading(true);
-      await AsyncStorage.setItem("name", username.trim());
-      await AsyncStorage.setItem("emailid", email.trim());
-      await AsyncStorage.setItem("password", password.trim());
-      router.push("/(tabs)");
+
+      const userCrenditial = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password,
+      );
+      console.log("logedin succes", userCrenditial.user.uid);
+      router.replace("/(tabs)");
     } catch (error) {
-      Alert.alert("saving failed");
+      Alert.alert("sign in failed");
       console.log("error");
     } finally {
       setIsLoading(false);
@@ -59,7 +66,7 @@ export default function Signup() {
   };
   if (isLoading) {
     return (
-      <View style={{ height: "50%", width: "70%" }}>
+      <View style={{ height: "50%", width: "70%", backgroundColor: "black" }}>
         <ActivityIndicator />
       </View>
     );

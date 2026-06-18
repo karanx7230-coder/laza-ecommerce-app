@@ -8,7 +8,7 @@ export default function Index({ navigation }: any) {
     const timer = setTimeout(() => {
       router.replace("/welcome");
       // router.replace("/(tabs)");
-    }, 5000);
+    }, 2000);
     return () => clearTimeout(timer);
   }, []);
   return (

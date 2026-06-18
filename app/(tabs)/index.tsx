@@ -1,7 +1,7 @@
 import { Loadinghome } from "@/components/ui/Loading";
 import { router } from "expo-router";
 import { useEffect, useState } from "react";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { auth } from "../../config/firebase";
 import {
   Alert,
   FlatList,
@@ -38,7 +38,6 @@ export default function HomeTabScreen() {
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  // const [likedProducts, setLikedProducts] = useState<number[]>([]);
 
   const loadCategories = async () => {
     try {
@@ -118,24 +117,13 @@ export default function HomeTabScreen() {
       </View>
     );
   }
-  // const handlesignupsave = async () => {
-  //   try {
-  //     setIsLoading(true);
-  //     await AsyncStorage.setItem("name", username.trim());
-  //     await AsyncStorage.setItem("emailid", email.trim());
-  //     await AsyncStorage.setItem("password", password.trim());
-  //     router.push("/(tabs)");
-  //   } catch (error) {
-  //     Alert.alert("saving failed");
-  //     console.log("error");
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // };
+
   const menu = async () => {
     try {
-      const emailshow = await AsyncStorage.getItem("emailid");
-      Alert.alert("your email", `Email: ${emailshow}`);
+      const user = auth.currentUser;
+      if (user && user.email) {
+        Alert.alert("your email", `Email: ${user.email}`);
+      }
     } catch (error) {
       Alert.alert("failed");
     }
@@ -149,7 +137,7 @@ export default function HomeTabScreen() {
               style={{ flexDirection: "row", justifyContent: "space-between" }}
             >
               <Menu onPress={menu} />
-              <CartBtn onPress={()=>Alert.alert("feature yet to add")} />
+              <CartBtn onPress={() => Alert.alert("feature yet to add")} />
             </View>
             <View style={homestyles.greetingContainer}>
               <Text style={homestyles.helloText}>Hello</Text>
