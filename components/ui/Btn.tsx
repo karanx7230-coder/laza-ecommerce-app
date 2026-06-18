@@ -56,7 +56,7 @@ export const CartBtn = ({ onPress }: cartbtnProps) => {
   return (
     <TouchableOpacity onPress={onPress} style={Btnstyles.cartButton}>
       <Image
-        source={require("../../assets/images/Bag (1).png")}
+        source={require("../../assets/images/Logout (1).png")}
         style={Btnstyles.cartIcon}
         resizeMode="contain"
       />

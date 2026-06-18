@@ -4,7 +4,7 @@ import { Remember, Title } from "@/components/ui/Titles";
 import { signupstyles } from "@/src/Styles/signupstyles";
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../config/firebase";
 
 import {
@@ -53,7 +53,12 @@ export default function Signup() {
         email,
         password,
       );
-      console.log("logedin succes", userCrenditial.user.uid);
+      if (auth.currentUser) {
+        await updateProfile(auth.currentUser, {
+          displayName: username,
+        });
+      }
+      console.log("logedin succes", userCrenditial.user.uid,username);
       router.replace("/(tabs)");
     } catch (error) {
       Alert.alert("sign in failed");

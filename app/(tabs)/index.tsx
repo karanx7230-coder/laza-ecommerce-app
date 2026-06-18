@@ -14,6 +14,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Api } from "../../src/services/api";
+import { signOut } from 'firebase/auth';
 import { homestyles } from "@/src/Styles/homestyles";
 import { CartBtn, Menu } from "@/components/ui/Btn";
 
@@ -128,6 +129,15 @@ export default function HomeTabScreen() {
       Alert.alert("failed");
     }
   };
+  const logout = async () => {
+    try {
+      await signOut(auth);
+      console.log("User logged out successfully");
+      router.replace("/login-type");
+    } catch (error) {
+      Alert.alert("failed");
+    }
+  };
   return (
     <SafeAreaView style={homestyles.safeArea}>
       <FlatList
@@ -137,7 +147,7 @@ export default function HomeTabScreen() {
               style={{ flexDirection: "row", justifyContent: "space-between" }}
             >
               <Menu onPress={menu} />
-              <CartBtn onPress={() => Alert.alert("feature yet to add")} />
+              <CartBtn onPress={logout} />
             </View>
             <View style={homestyles.greetingContainer}>
               <Text style={homestyles.helloText}>Hello</Text>
