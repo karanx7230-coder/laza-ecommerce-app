@@ -27,20 +27,14 @@ export default function Onboarding() {
 
           <View style={welcomeStyles.view1}>
             <TouchableOpacity
-              onPress={() => {
-                route.push("/login-type");
-                console.log("male");
-              }}
+              onPress={() => route.push("/login-type")}
               style={welcomeStyles.button}
             >
               <Text style={welcomeStyles.gender}>Male</Text>
             </TouchableOpacity>
 
             <TouchableOpacity
-              onPress={() => {
-                route.push("/login-type");
-                console.log("female");
-              }}
+              onPress={() => route.push("/login-type")}
               style={welcomeStyles.button}
             >
               <Text style={welcomeStyles.gender}>Female</Text>
@@ -48,11 +42,7 @@ export default function Onboarding() {
           </View>
 
           <Pressable
-            onPress={() => {
-              // route.push("/login-type");
-              route.push("/(tabs)");
-              console.log("skiped");
-            }}
+            onPress={() => route.replace("/login-type")}
             style={welcomeStyles.skipContainer}
           >
             <Text style={welcomeStyles.skipText}>skip</Text>

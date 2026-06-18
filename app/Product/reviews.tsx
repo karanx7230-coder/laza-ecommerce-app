@@ -2,14 +2,13 @@ import {
   View,
   Text,
   Alert,
-  FlatListComponent,
   FlatList,
   Image,
 } from "react-native";
 import { Api } from "@/src/services/api";
 import { useEffect, useState } from "react";
 import { useLocalSearchParams } from "expo-router";
-import { Loadingproduct } from "@/components/ui/Loading";
+import { LoadingSearch} from "@/components/ui/Loading";
 import { Back } from "@/components/ui/Btn";
 import { Title } from "@/components/ui/Titles";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -64,7 +63,7 @@ export default function Review() {
   }, [id]);
 
   if (isLoading) {
-    return <Loadingproduct />;
+    return <LoadingSearch />;
   }
 
   if (error) {
@@ -98,7 +97,7 @@ export default function Review() {
               style={{ flexDirection: "row", justifyContent: "space-between" }}
             >
               <Text>{item.reviewerName}</Text>
-              <Text>{item.rating}rating</Text>
+              <Text>{item.rating}⭐rating</Text>
             </View>
             <View style={{ flexDirection: "row" }}>
               <Image
@@ -115,18 +114,4 @@ export default function Review() {
     </SafeAreaView>
   );
 }
-// View
-//             style={{
-//               marginBottom: 16,
-//               padding: 12,
-//               borderWidth: 1,
-//               borderRadius: 8,
-//             }}
-//           >
-//             <Text style={{ fontWeight: "bold" }}>{item.reviewerName}</Text>
-//             <Text>⭐ {item.rating}</Text>
-//             <Text>{item.comment}</Text>
-//             <Text style={{ fontSize: 12, color: "gray" }}>
-//               {new Date(item.date).toLocaleDateString()}
-//             </Text>
-// </View>
+

@@ -1,5 +1,5 @@
 import { Back } from "@/components/ui/Btn";
-import { Loadingproduct } from "@/components/ui/Loading";
+import { LoadingSearch } from "@/components/ui/Loading";
 import { router, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { productstyles } from "@/src/Styles/productstyles";
@@ -64,7 +64,7 @@ export default function ProductDetailScreen() {
   }, [id]);
 
   if (isLoading) {
-    return <Loadingproduct />;
+    return <LoadingSearch />;
   }
 
   if (error || !product) {

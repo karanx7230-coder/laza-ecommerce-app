@@ -1,9 +1,7 @@
 import { Back, Btn } from "@/components/ui/Btn";
-
 import { Input } from "@/components/ui/Inputs";
 import { Remember, Title } from "@/components/ui/Titles";
 import { signupstyles } from "@/src/Styles/signupstyles";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";

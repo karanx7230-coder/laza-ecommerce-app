@@ -43,7 +43,7 @@ export const Loadinghome = () => {
   );
 };
 
-export const Loadingproduct = () => {
+export const LoadingSearch = () => {
   return (
     <View>
         <View  style={Loadingstyles.productListItemSkeleton} />
@@ -59,7 +59,14 @@ export const Loadingproduct = () => {
     </View>
   );
 };
-
+export const loadingproduct =()=>{
+  return(
+    <View>
+      <View style={{height:300,width:"100%",backgroundColor:"#b1b1b1", marginVertical:20,}}/>
+      <View style={{height:60,width:200,margin:20}}/>
+    </View>
+  )
+}
 export const Searchnotfound = () => {
   return (
     <View style={Loadingstyles.searchErrorContainer}>

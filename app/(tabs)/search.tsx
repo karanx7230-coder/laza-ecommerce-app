@@ -1,4 +1,4 @@
-import { Loadingproduct,Searchnotfound } from "@/components/ui/Loading";
+import { LoadingSearch, Searchnotfound } from "@/components/ui/Loading";
 import { searchstyles } from "@/src/Styles/searchstyles";
 import { Api } from "@/src/services/api";
 import { router } from "expo-router";
@@ -44,13 +44,16 @@ export default function Search() {
   useEffect(() => {
     const delayDebounce = setTimeout(() => {
       fetchSearchResults(query);
-    },200);
+    }, 200);
     return () => clearTimeout(delayDebounce);
   }, [query]);
 
   const renderProduct = () => {
+    if (!query.trim()) {
+      return null;
+    }
     if (loading) {
-      return <Loadingproduct />;
+      return <LoadingSearch />;
     }
     if (query.trim() && result.length === 0) {
       return <Searchnotfound />;
@@ -100,4 +103,3 @@ export default function Search() {
     </View>
   );
 }
-

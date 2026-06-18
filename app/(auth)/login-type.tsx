@@ -6,7 +6,7 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { Logintypestyle} from "@/src/Styles/Logintypestyle";
 
-import { Text, TouchableOpacity, View } from "react-native";
+import { Alert, Text, TouchableOpacity, View } from "react-native";
 
 export default function LoginType() {
   const router = useRouter();
@@ -18,19 +18,19 @@ export default function LoginType() {
       <Title title="Let's Get Started" />
       <View style={Logintypestyle.view1}>
         <SocialButton
-          onPress={() => router.navigate("/sign-up")}
+          onPress={() => Alert.alert("feature yet to add")}
           title="Facebook"
           backgroundColor="#4267B2"
           imageSource={require("../../assets/images/Facebook.png")}
         />
         <SocialButton
-          onPress={() => router.navigate("/sign-up")}
+          onPress={() => Alert.alert("feature yet to add")}
           title="Twitter"
           backgroundColor="#1DA1F2"
           imageSource={require("../../assets/images/x.png")}
         />
         <SocialButton
-          onPress={() => router.navigate("/sign-up")}
+          onPress={() => Alert.alert("feature yet to add")}
           title="Google"
           backgroundColor="#EA4335"
           imageSource={require("../../assets/images/Google.png")}
@@ -45,7 +45,7 @@ export default function LoginType() {
         </View>
         <Btn
           title="create an Account"
-          onPress={() => router.navigate("/sign-up")}
+          onPress={() => Alert.alert("feature yet to add")}
         />
       </View>
     </View>
