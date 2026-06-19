@@ -5,7 +5,7 @@ export const Loadingstyles = StyleSheet.create({
   homeContainer: {
     flex: 1,
     backgroundColor: "white",
-    paddingTop: 60,
+    paddingTop: 10,
     paddingHorizontal: 20,
   },
   headerRow: {

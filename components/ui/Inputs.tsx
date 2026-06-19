@@ -44,5 +44,6 @@ export const Input = ({ title, ...props }: InputProps) => {
     },
     input: {
         width: "90%",
+        color:"black"
     },
 });

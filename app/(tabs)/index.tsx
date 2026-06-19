@@ -130,14 +130,28 @@ export default function HomeTabScreen() {
     }
   };
   const logout = async () => {
-    try {
-      await signOut(auth);
-      console.log("User logged out successfully");
-      router.replace("/login-type");
-    } catch (error) {
-      Alert.alert("failed");
-    }
+    Alert.alert(
+      "Log Out",
+      "Are you sure you want to log out?",
+      [
+        {
+          text: "Cancel",
+        },
+        {
+          text: "OK",
+          onPress: async () => {
+            try {
+              await signOut(auth);
+              router.replace("/login-type");
+            } catch (error) {
+              Alert.alert("Error", "Failed to log out.");
+            }
+          },
+        },
+      ],
+    );
   };
+ 
   return (
     <SafeAreaView style={homestyles.safeArea}>
       <FlatList

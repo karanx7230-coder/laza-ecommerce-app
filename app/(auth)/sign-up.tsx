@@ -15,6 +15,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { Loadinghome } from "@/components/ui/Loading";
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 export default function Signup() {
   const [email, setemail] = useState("");
@@ -69,9 +70,7 @@ export default function Signup() {
   };
   if (isLoading) {
     return (
-      <View style={{ height: "50%", width: "70%", backgroundColor: "black" }}>
-        <ActivityIndicator />
-      </View>
+      <Loadinghome/>
     );
   }
 

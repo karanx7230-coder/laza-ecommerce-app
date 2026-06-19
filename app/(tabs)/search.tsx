@@ -76,12 +76,7 @@ export default function Search() {
               source={{ uri: item.thumbnail }}
               style={searchstyles.productThumbnail}
             />
-            <View
-              style={{ flexDirection: "row", justifyContent: "space-between",width:"80%"}}
-            >
-              <Text style={searchstyles.productTitle}>{item.title}</Text>
-              <Text style={searchstyles.productprice}>{item.price}</Text>
-            </View>
+            <Text style={searchstyles.productTitle}>{item.title}</Text>
           </Pressable>
         )}
       />
