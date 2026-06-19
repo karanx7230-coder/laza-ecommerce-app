@@ -17,6 +17,7 @@ import {
   Text,
   View,
 } from "react-native";
+import { Loadinghome } from "@/components/ui/Loading";
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function Login() {
@@ -26,6 +27,7 @@ export default function Login() {
   const [rememered, setrememberd] = useState<boolean>(true);
   const router = useRouter();
   const handlesignup = async () => {
+    setIsLoading(true)
     try {
       const userCrenditial = await signInWithEmailAndPassword(
         auth,
@@ -44,9 +46,7 @@ export default function Login() {
   };
   if (isLoading) {
     return (
-      <View style={{ height: "50%", width: "70%" }}>
-        <ActivityIndicator />
-      </View>
+      <Loadinghome/>
     );
   }
   return (
