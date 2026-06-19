@@ -23,7 +23,6 @@ export default function Forget1() {
       Alert.alert(".com");
       return;
     }
-    console.log("My email is: ", finalemail);
     router.push("/otp");
   };
   return (

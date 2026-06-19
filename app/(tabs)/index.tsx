@@ -80,7 +80,6 @@ export default function HomeTabScreen() {
       <TouchableOpacity
         onPress={() => {
           router.push(`/Product/${item.id}`);
-          console.log(item.id);
         }}
         style={homestyles.productCard}
       >

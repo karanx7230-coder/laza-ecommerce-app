@@ -18,7 +18,7 @@ export default function OTP() {
   const pin4Ref = useRef<TextInput>(null);
   const submitOTP = () => {
     const finalOtp = pin1 + pin2 + pin3 + pin4;
-    console.log("Mera final OTP hai: ", finalOtp);
+    // console.log("Mera final OTP hai: ", finalOtp);
     router.replace("/(tabs)");
   };
   return (

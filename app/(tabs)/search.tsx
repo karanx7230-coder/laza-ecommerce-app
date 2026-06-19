@@ -68,7 +68,6 @@ export default function Search() {
           <Pressable
             onPress={() => {
               router.push(`/Product/${item.id}`);
-              console.log(item.id);
             }}
             style={searchstyles.productItem}
           >
