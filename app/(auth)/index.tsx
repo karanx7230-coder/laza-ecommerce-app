@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { useRouter } from "expo-router";
-import { LinearGradient } from "expo-linear-gradient";
-export default function Index({ navigation }: any) {
+import { LinearGradient} from "expo-linear-gradient";
+export default function Index({ navigation }: any) { 
   const router = useRouter();
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -14,7 +14,7 @@ export default function Index({ navigation }: any) {
   return (
     <View>
       <LinearGradient colors={["#9675fa71", "#9775FA"]} style={style.gradient}>
-        <Text style={style.text}>Laza</Text>
+        <Text style={style.text}>Laza..</Text>
       </LinearGradient>
     </View>
   );
